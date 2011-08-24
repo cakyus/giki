@@ -1,0 +1,24 @@
+
+	G I K I
+
+A small flat-file Wiki system written in PHP.
+
+Sam Thursfield	<golrien hybd.net>
+	- Original author
+
+Guy Brand 	<guybrand chimie.u-strasbg.fr>
+	- Various comments and suggestions
+
+"Walk" 		<walk ifrance.com>
+	- French translation 
+	  (http://webgeneraction.levillage.org/article.php3?id_article=212)
+	- Various comments and suggestions
+
+Dennis Kehrig 	<mail denniskehrig.de>
+	- German translation (language.de.inc)
+	
+Gregor Richards
+        - Forked "Giki," maintainer of Giki
+
+"halojoy"
+        - Created remotelog.txt functionality

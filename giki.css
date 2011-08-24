@@ -1,0 +1,69 @@
+body {
+    background-color: #FFFFFF;
+    color: #000000;
+    margin: 0px;
+}
+
+a:active {color: #990099}
+a:visited {color: #0000FF}
+a:link {color: #0000FF}
+a:hover {color: #990099}
+
+input, select, textarea {	
+    background-color: #FFFFFF;
+    border: solid 1px #000000;
+}
+
+h1, h2, h3, h4, h5, h6 { font-family: sans-serif }
+
+div#sidebar {
+    background-color: #000066;
+    color: #FFFFFF;
+    position: fixed;
+    left: 0px;
+    width: 10em;
+    top: 0px;
+    bottom: 0px;
+    z-index: 2;
+    overflow: auto;
+    padding: 0.5em;
+}
+div#sidebar a:active { color: #66FF66 }
+div#sidebar a:visited { color: #FFFF00 }
+div#sidebar a:link { color: #FFFF00 }
+div#sidebar a:hover { color: #66FF66 }
+
+div#iebox {
+    position: absolute;
+    left: 0px;
+    width: 100%;
+    top: 0px;
+}
+
+div#topbar {
+    position: fixed;
+    left: 0px;
+    right: 0px;
+    top: 0px;
+    background-color: #FFFFFF;
+    color: #CCCCCC;
+    margin-left: 11em;
+    border-bottom: 2px solid #000066;
+    padding: 0.2em 0.5em 0.5em 0.5em;
+    text-align: justify;
+}
+div#topbar a {
+    color: #000099;
+    font-family: sans-serif;
+    text-decoration: none;
+}
+div#topbar a:hover {
+    font-family: sans-serif;
+    text-decoration: underline;
+}
+
+div#content {
+    background-color: #FFFFFF;
+    margin-left: 11em;
+    padding: 2em 0.5em 0px 0.5em;
+}

@@ -1,0 +1,105 @@
+
+	G I K I
+
+A small flat-file Wiki system written in PHP.
+
+Version 1.5.2.
+
+Based on "Wiki!" by Sam Thursfield <golrien hybd.net>, August 2002 - February 2003.
+
+by Gregor Richards, 2005, 2006.
+
+
+SO, WHAT IS IT?
+
+A wiki; a system of nodes that anyone (with an account) can modify. See
+Everything2 (http://www.everything2.com) as an example of a slightly bigger
+system, based on the same principles.
+  
+
+HOW DO I INSTALL IT?
+
+The scripts should be installed in a directory inside the web root (ie,
+viewable by HTTP). The data files should be installed a directory that is world
+writable (chmod'ed to 777), which means that they should, if possible, be kept
+above the web root. For example, if your index.html goes in
+/home/sites/clowns.com/web, you'll want to put the scripts in that directory
+(or a subdirectory of it) and create /home/sites/clowns.com/wiki for the data.
+Because the data directory has to be world writable, it is insecure to place it
+where it can be accessed via HTTP.
+
+
+IT'S PRETTY BORING, HUH?
+
+Yeah, you' ll want to go to adduser.php and add yourself; log in and do some
+funk. That's essentially it, you have a wiki. HTML is allowed unless the noHTML
+GikiPlugin is loaded; you can link to other notes by enclosing the name in
+[square brackets]. [Hi|hello] will link to node hello but display Hi as the
+link text. You can also include inline images with [image:filename], and link
+to fully qualified URLs in both syntaxes.
+
+
+WHERE DO I FIND OUT ABOUT UPDATES?
+
+http://giki.sourceforge.net
+
+
+HANG ON, I LINKED TO A NODE AND IT COMES UP EMPTY!
+
+The names are case sensitive, so if you've got a node called cheese you've got
+to do [cheese] not [Cheese]. You can still put [Cheese|cheese], though.
+
+
+HOW DO I LINK TO A WEB PAGE?
+
+You can create links like this: [http://www.google.com/] You can also create
+relative links, like this: [:upload.php]
+
+
+I TRIED TO LINK AND IT DIDN'T WORK AT ALL.
+
+I'm using regexp to match the links, so there's probably a character that isn't
+listed (some are deliberately disallowed to avoid filename screwings and
+stuff). Currently available, as well as all letters and numbers, are the
+following symbols: !-=+\"$%^()@_ If you need one that isn't there and you think
+it should be, bug me about it and I'll fix it up for you.
+
+
+I KEEP GETTING "ACCESS DENIED" WHEN TRYING TO VIEW OR EDIT A NODE, WHAT'S UP
+WITH THAT?
+
+The file permissions are set wrong. The node directory must be 777 (world
+writable) in order to be editable.
+
+
+LOGIN DOESN'T WORK.
+
+If you're using IE6, this could be a security policy issue with cookies. You
+have to mark the site as secure in IE.
+ 
+
+HOW CAN I LET THE USER CREATE A NODE?
+
+The following snippet of code was sent in by "Walk" <walk ifrance.com>:
+<formname="edit"> <input type="text" name="title"> <input
+type="submit"value="Create a node"> </form>
+
+
+HOW DO I TRANSLATE IT?
+
+You create a new language.xx.inc, with xx being some kind of country code, and
+change language.inc to point to it. You hopefully also send it to one of the
+developers.
+
+
+I INSTALLED THIS OVER AN OLD VERSION AND ALL MY NODES DISAPPEARED. UH?
+
+Make sure you didn't change your node directory in config.php.
+
+
+HOW DO I CHANGE THE TEMPLATE?
+
+Your template can be any HTML file, but it should have: $title where you want
+the title of the node, $node where you want the node data, and $bar where you
+want the bar. You can also make certain nodes function as part of the template
+like so: $node[Sidebar]. You can change how the bar is displayed in config.php.

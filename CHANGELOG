@@ -1,0 +1,137 @@
+
+	G I K I
+
+A small flat-file Wiki system written in PHP.
+
+Version 1.5.2.
+
+Giki by Gregor Richards, 2005, 2006
+Wiki! by Sam Thursfield <golrien hybd.net>, August 2002 - February 2003.
+
+-----
+Giki changelog:
+Version 1.5.2:
+        - Fixed a bug in GWS which caused [this|style] of link to fail to
+          render in tables.
+        - Fixed a bug in parse.php which caused links with & and other special
+          symbols not to render properly.
+        - Fixed a bug in GWS which caused non-closing <pre> tags to hang.
+        - Added simple help to edit.php on making links.
+
+Version 1.5.1:
+        - Really stupid bug in adduser.php: malnamed field.
+
+Version 1.5.0:
+        - Logins now plugin-based.
+        - list.php now sorts the listed nodes.
+        - Logins and the database are now both modularized and plugin-able :)
+        - A preview button for edits, at long last.
+        - Use require_once instead of include to try to lessen weird errors.
+        - Registration plugins are allowed, to prevent registration in certain
+          circumstances.
+        - Links can now have foreign characters.
+
+Version 1.4.5:
+        - Fixed a nasty bug with history.
+
+Version 1.4.4:
+        - Fixed the very-broken subnode support :(
+
+Version 1.4.3:
+        - Optional logging of login attempts.
+        - Updated German language translation.
+        - Improved subnode parsing integration.
+        - [image:...] embedded images.
+
+Version 1.4.2:
+        - Made use of $_GET instead of register_globals
+
+Version 1.4.1:
+        - Added remotelog.txt functionality (thanks halojoy)
+        - pre plugins
+        - The history page now always shows the proper title
+
+Version 1.4.0:
+        - Fixed a nasty injection bug
+        - Change .inc to .php
+
+Version 1.3.1:
+        - Added spanish translation
+        - Added stdgikiparse
+
+Version 1.3.0:
+        - Stabilize the numbering scheme
+        - Several minor rendering fixes
+        - Fixed a bug with logging in with the wrong password
+        - Subnodes in the template
+        - []-style links to URLs
+
+Version 1.2:
+        - Inserted all new text back into the languages files - hence the German language file is
+          now out of date.
+        - Made file uploading an option.
+        - Adjusted parsing such that $plugins would not turn into the list of plugins within a node.
+        - Changed simple plugins to a variant of the MIT/X Consortium license
+
+Version 1.1.1:
+        - Moved some code around to more logical places, added "edit" plugins.
+
+Version 1.1:
+        - Added a plugin system
+        - Created a noHTML plugin and a WMS (Wiki Markup Standard) plugin
+
+Version 1.0:
+        - Added file uploads
+        - Added an option to allow guests to post
+        - Added history
+        - Templatized the nav-bar
+        - Secured the logins (to some extent)
+        - Added checks on input formatting (no <br>s in <pre>s, etc)
+
+-----
+Wiki! changelog:
+Version 1.1.3:	24th February 2003
+	- translated the log in button.
+	- user information is now stored in the same directory as the nodes.
+	- corrected and updated some documentation.
+
+
+Version 1.1.2:  16th February 2003 
+	- added Dennis Kehrig's language.de.inc (German translation)
+	- renamed language.inc to language.en.inc to make things more, you know, better.
+	- documentation changes.
+	- made the package more 'unixy' (mainly due to the fact that I now run a UNIX 
+	  system :)
+	- changed $out to $logging_out to avoid conflicts with an environment 
+	  variable on some crazy platform.
+
+Version 1.1.1:  24th September 2002
+	- added more special characters to the node-link matching code. See the readme
+	  for a list of the characters you're now allowed.
+
+
+Version 1.1.0: 	15th September 2002
+	- fixed the login bug introduced in 1.0.2
+	- put the [Foo|cheese] back the way it should be (displays Foo and links to
+	  cheese, not the other way around)
+	- fixed another problem with the regexp
+	- multilingual support! Change the file language.inc
+
+
+Version 1.0.2:  4th September 2002
+	- for some reason index.php tried to open files with read/write access, it's
+	  fixed now.	
+	- fixed a little documentation
+	- added a configuration file (config.inc)
+	- you can now place nodes in a seperate directory
+	- the template file used can be specified
+
+
+Version 1.0.1:	2nd September 2002
+	- fixed a silly bug where a node called $t was created instead of referenced
+	- fixed up evil regexp code so it worked
+	- exclamation marks and ampersands now allowed in node links
+
+
+Version 1.0.0:	28th August 2002
+	- initial release
