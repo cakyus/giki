@@ -72,7 +72,6 @@ div#topbar {
     top: 0px;
     background-color: #DDD;
     color: #CCCCCC;
-    margin-left: 11em;
     text-align: justify;
 	border-bottom: #999 1px solid;
 }
@@ -88,7 +87,6 @@ div#topbar a:hover {
 }
 
 div#content {
-    margin-left: 11em;
     padding: 2em 0.5em 0px 0.5em;
 }
 
