@@ -26,19 +26,19 @@ require_once("parse.php");
 
 function display($title, $node, $bar, $fname) {
     global $bar_prefix, $bar_separator, $bar_suffix, $plugins;
-    
+
     $file=fopen($fname, "r");
     $page="";
-    while(!feof($file)) 
+    while(!feof($file))
         $page.=fgets($file, filesize($fname));
-    
+
     $page=str_replace('$title', $title, $page);
     $page=str_replace('$bar', $bar_prefix . implode($bar_separator, $bar) . $bar_suffix, $page);
-    $page=str_replace('$plugins', "Plugins: " . implode(", ", $plugins), $page);
-    
+//    $page=str_replace('$plugins', "Plugins: " . implode(", ", $plugins), $page);
+
     $page=preg_replace_callback('/\$node\[([^\]]+)\]/', "subnodeParse", $page);
     $page=str_replace('$node', $node, $page);
-    
+
     echo $page;
 }
 ?>
