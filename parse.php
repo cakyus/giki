@@ -32,13 +32,13 @@ function parsecontents($title,
                        ) {
     global $plugins;
     $nodetitle = $title;
-    
+
     // Load render plugins
     for ($i = 0; isset($plugins[$i]); $i++) {
         $plugin = $plugins[$i];
         @include("gikiplugin-render-$plugin.php");
     }
-    
+
     // Now links
     $onode = "";
     $inpre = false;
@@ -60,11 +60,11 @@ function parsecontents($title,
         } else if ($char == "[" && !$inpre && !$inscript) {
             // find the rest of this link
             for ($j = $i + 1; $j < strlen($node) && substr($node, $j, 1) != "]"; $j++);
-                
+
             // $link is set to the contents
             $link = substr($node, $i, $j - $i + 1);
             $i = $j;
-                
+
             // this could be a link proper or an image
             if (substr($link, 0, 7) == "[image:") {
                 // put in the image code
@@ -79,7 +79,7 @@ function parsecontents($title,
                     '/\[([^\]\|]+)\|([^\]]+)\]/');
                 $title = preg_replace($match, '\2', $link);
                 $text = preg_replace($match, '\1', $link);
-                
+
                 // now $link gets replaced with a real link
                 $link = str_replace (
                     array("TITLE",
@@ -88,7 +88,7 @@ function parsecontents($title,
                           $text),
                     stripslashes($linkmethod));
             }
-                
+
             $onode .= $link;
         } else {
             $onode .= $char;
@@ -96,31 +96,33 @@ function parsecontents($title,
     }
     return $onode;
 }
-    
+
 function parse($title,
                $linkmethod = "<a href=\"?title=TITLE\">TEXT</a>",
                $wrevhist = true
                ) {
     global $empty, $nodedir, $plugins, $revhistory;
-    
+
+//	var_dump($wrevhist); exit();
+
     if (nodeExists($title)) {
         $contents = getNodeContents($title);
         if ($contents === false) die("Failed to read node contents!");
-        
+
         $node = $contents["text"];
-        
+
         $node = parsecontents($title, $node, $linkmethod, $wrevhist);
-        
+
         // only show revision history if requested
-        if ($wrevhist) {
-            if (isset($contents["revhistory"][0])) {
-                $node.="<br><br>$revhistory";
-                
-                foreach ($contents["revhistory"] as $rev) {
-                    $node .= "<br>" . $rev;
-                }
-            }
-        }
+#         if ($wrevhist) {
+#             if (isset($contents["revhistory"][0])) {
+#                 $node.="<br><br>$revhistory";
+#
+#                 foreach ($contents["revhistory"] as $rev) {
+#                     $node .= "<br>" . $rev;
+#                 }
+#             }
+#         }
     } else {
         if (file_exists($nodedir . $title) &&
             strtolower(substr($title, -4)) != ".txt") {
@@ -135,20 +137,20 @@ function parse($title,
             die();
         } else {
             $node = $empty;
-            
+
             // Load render plugins
             foreach ($plugins as $plugin) {
                 @include("gikiplugin-render-$plugin.php");
             }
         }
     }
-    
+
     return $node;
 }
 
 function subnodeParse($titles) {
     global $defaultLinkmethod;
-    
+
     $node  = "<div align='right' style='height: 0px; overflow: visible'>";
     $node .= "<a href='edit.php?title=" . $titles[1] . "'>E</a>&nbsp;&nbsp;";
     $node .= "</div><br>";
